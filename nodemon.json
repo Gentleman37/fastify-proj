@@ -1,0 +1,8 @@
+{
+  "events": {
+    "start": "echo \"Build Project before starting nodemon...\"",
+    "restart": "echo \"App Restarted due to:\n'$FILENAME'\""
+  },
+  "watch": ["src/"],
+  "ext": "js,mjs,json,ts"
+}

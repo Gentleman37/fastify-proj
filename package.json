@@ -1,0 +1,23 @@
+{
+  "name": "fastify-proj",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Gentleman37/fastify-proj.git",
+  "author": "Gentleman37 <mango037@naver.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon -L --exec \"ts-node src/index.ts\"",
+    "develop": "ts-node src/index.ts",
+    "start": "node build/index/js"
+  },
+  "dependencies": {
+    "fastify": "^3.19.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.2",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  }
+}
