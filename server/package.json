@@ -13,6 +13,7 @@
     "schema:generate": "json2ts -i src/schemas -o src/schema-types --style.singleQuote --no-style.semi"
   },
   "dependencies": {
+    "aws-sdk": "^2.947.0",
     "fastify": "^3.19.1",
     "fastify-cors": "^6.0.2"
   },
