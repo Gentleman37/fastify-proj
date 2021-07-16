@@ -1,6 +1,6 @@
 {
-  "title": "Post Logs Body",
   "body": {
+    "title": "Post Logs Body",
     "type": "object",
     "properties": {
       "eventName": { "type": "string" },
@@ -12,5 +12,13 @@
       "clientTime": { "type": "string" }
     },
     "required": ["eventName", "properties", "deviceId", "sessionId", "browserId", "customerId", "clientTime"]
+  },
+  "response": {
+    "200": {
+      "type": "object",
+      "properties": {
+        "message": { "type": "string" }
+      }
+    }
   }
 }

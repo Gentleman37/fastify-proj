@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import cors from 'fastify-cors'
+import swagger from 'fastify-swagger'
 
 import PostCheckBodySchema from './schemas/postCheck.body.json'
 import { PostCheckBody } from './schema-types/postCheck.body'
@@ -11,6 +12,10 @@ const app = fastify()
 
 app.register(cors, {
   origin: '*',
+})
+app.register(swagger, {
+  routePrefix: '/docs',
+  exposeRoute: true,
 })
 
 // GET /
@@ -24,9 +29,13 @@ app.post<{ Body: PostLogsBody }>('/logs', { schema: PostLogsBodySchema, attachVa
     reply.code(400).send(req.validationError)
   }
 
-  FirehoseService.putRecord(req.body)
+  try {
+    FirehoseService.putRecord(req.body)
+  } catch (error) {
+    reply.code(200).send({ message: 'bad' })
+  }
 
-  return 'good'
+  reply.code(200).send({ message: 'good' })
 })
 
 // POST /check

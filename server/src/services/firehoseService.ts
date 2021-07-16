@@ -27,8 +27,8 @@ export default {
         Record: { Data: JSON.stringify(finalData) },
       },
       (err, success) => {
-        if (err) console.error(err)
-        if (success) console.log(success)
+        if (err) throw new Error(err.message)
+        if (success) return success
         else console.log('nothing...')
       }
     )

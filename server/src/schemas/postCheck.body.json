@@ -1,6 +1,6 @@
 {
-  "title": "Post Check Body",
   "body": {
+    "title": "Post Check Body",
     "type": "object",
     "properties": {
       "name": { "type": "string" },
