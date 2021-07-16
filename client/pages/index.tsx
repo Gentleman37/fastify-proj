@@ -14,10 +14,8 @@ const Home: React.FC<IProps> = ({ user }) => {
 
   useEffect(() => {
     gentleClient?.track({ eventName: 'view', properties: { page: 'home' } })
-  }, [])
 
-  useEffect(() => {
-    // LogApi.send({ common: { clientTime: new Date().toISOString() }, data: { user } })
+    LogApi.send({ common: { clientTime: new Date().toISOString() }, data: { user } })
   }, [])
 
   const dispatch = useDispatchUser()

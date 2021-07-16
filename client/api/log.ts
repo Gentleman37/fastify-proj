@@ -9,7 +9,7 @@ export interface ILogData {
 
 const LogApi = {
   send(logData: ILogData) {
-    axios.post('http://localhost:8000/logs', { common: logData.common, daTa: logData.data })
+    axios.post('http://localhost:5000/logs', { common: logData.common, data: logData.data })
   },
 }
 
