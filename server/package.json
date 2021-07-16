@@ -7,9 +7,8 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon -L --exec \"ts-node src/index.ts\"",
-    "develop": "ts-node src/index.ts",
-    "start": "node build/index.js",
+    "dev": "nodemon -L --exec \"NODE_ENV=dev ts-node src/index.ts\"",
+    "start": "NODE_ENV=prod node build/index.js",
     "schema:generate": "json2ts -i src/schemas -o src/schema-types --style.singleQuote --no-style.semi"
   },
   "dependencies": {

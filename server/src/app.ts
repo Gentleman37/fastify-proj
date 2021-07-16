@@ -13,10 +13,13 @@ const app = fastify()
 app.register(cors, {
   origin: '*',
 })
-app.register(swagger, {
-  routePrefix: '/docs',
-  exposeRoute: true,
-})
+
+if (process.env.NODE_ENV === 'dev') {
+  app.register(swagger, {
+    routePrefix: '/docs',
+    exposeRoute: true,
+  })
+}
 
 // GET /
 app.get('/', async (req, reply) => {
