@@ -4,7 +4,7 @@
     "type": "object",
     "properties": {
       "name": { "type": "string" },
-      "age": { "type": ["integer", "string"], "minimum": 0 },
+      "age": { "type": ["integer"], "minimum": 0 },
       "greeting": { "enum": ["welcome!", "nice to meet you!"], "description": "greeting message" }
     },
     "required": ["greeting", "name"]

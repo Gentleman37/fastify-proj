@@ -3,6 +3,8 @@ import fastify from 'fastify'
 import cors from 'fastify-cors'
 import PostCheckBodySchema from './schemas/postCheck.body.json'
 import { PostCheckBody } from './schema-types/postCheck.body'
+import PostLogsBodySchema from './schemas/postLogs.body.json'
+import { PostLogsBody } from './schema-types/postLogs.body'
 
 // const ajv = new Ajv({
 //   removeAdditional: true,
@@ -24,14 +26,12 @@ app.get('/', async (req, reply) => {
 })
 
 // POST /logs
-app.post('/logs', { attachValidation: true }, async (req, reply) => {
+app.post<{ Body: PostLogsBody }>('/logs', { schema: PostLogsBodySchema, attachValidation: true }, async (req, reply) => {
   console.log(req.body)
   if (req.validationError) {
     reply.code(400).send(req.validationError)
   }
 
-  // const { greeting, name } = req.body
-  // reply.code(200).send({ message: `Hello ${name}, ${greeting}` })
   return 'good'
 })
 

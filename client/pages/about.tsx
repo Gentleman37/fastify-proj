@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import router from 'next/router'
-import { GentleSDKClient } from 'gentleman-sample-sdk'
 import { useGentle } from '../context/gentleContext'
 
 interface IProps {}
@@ -8,12 +7,24 @@ interface IProps {}
 const About: React.FC<IProps> = () => {
   const gentleClient = useGentle()
   useEffect(() => {
-    gentleClient?.track({ eventName: 'view', properties: { page: 'about' } })
-    // LogApi.send({ common: { clientTime: new Date().toISOString() }, data: { user } })
-  }, [])
+    const ueah = async () => {
+      const res = await gentleClient?.track({
+        endPoint: '/logs',
+        event: { eventName: 'view', properties: { page: 'about' } },
+      })
+      console.log(res)
+    }
 
-  const handleGoHome = () => {
-    gentleClient?.track({ eventName: 'click', properties: { page: 'about' } })
+    ueah()
+  }, [])
+  // console.log(gentleClient)
+
+  const handleGoHome = async () => {
+    const res = await gentleClient?.track({
+      endPoint: '/logs',
+      event: { eventName: 'click', properties: { button: 'GO HOME' } },
+    })
+    console.log(res)
     router.push('/')
   }
 

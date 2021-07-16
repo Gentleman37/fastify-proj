@@ -1,0 +1,16 @@
+{
+  "title": "Post Logs Body",
+  "body": {
+    "type": "object",
+    "properties": {
+      "eventName": { "type": "string" },
+      "properties": { "type": "object" },
+      "deviceId": { "type": "string" },
+      "sessionId": { "type": "string" },
+      "browserId": { "type": "string" },
+      "customerId": { "type": ["string", "null"] },
+      "clientTime": { "type": "string" }
+    },
+    "required": ["eventName", "properties", "deviceId", "sessionId", "browserId", "customerId", "clientTime"]
+  }
+}

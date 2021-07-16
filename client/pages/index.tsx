@@ -3,8 +3,6 @@ import Image from 'next/image'
 import { useEffect } from 'react'
 import router from 'next/router'
 import styles from '../styles/Home.module.css'
-import LogApi from '../api/log'
-import { useDispatchUser, useUser } from '../context/userContext'
 import { useGentle } from '../context/gentleContext'
 
 interface IProps extends InferGetServerSidePropsType<typeof getServerSideProps> {}
@@ -13,19 +11,25 @@ const Home: React.FC<IProps> = ({ user }) => {
   const gentleClient = useGentle()
 
   useEffect(() => {
-    gentleClient?.track({ eventName: 'view', properties: { page: 'home' } })
-
-    LogApi.send({ common: { clientTime: new Date().toISOString() }, data: { user } })
+    gentleClient?.track<string>({
+      endPoint: '/logs',
+      event: { eventName: 'view', properties: { page: 'home' } },
+    })
   }, [])
 
-  const dispatch = useDispatchUser()
-
   const handleLogin = () => {
-    gentleClient?.track({ eventName: 'login', properties: { email: user.email } }, user.id)
+    gentleClient?.updateUserInfo(user.id)
+    gentleClient?.track({
+      endPoint: '/logs',
+      event: { eventName: 'login', properties: { email: user.email } },
+    })
   }
 
   const handleGoAbout = () => {
-    gentleClient?.track({ eventName: 'click', properties: { button: 'GO ABOUT' } })
+    gentleClient?.track({
+      endPoint: '/logs',
+      event: { eventName: 'click', properties: { button: 'GO ABOUT' } },
+    })
     router.push('/about')
   }
 
