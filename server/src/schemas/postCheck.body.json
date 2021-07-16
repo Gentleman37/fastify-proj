@@ -1,9 +1,11 @@
 {
+  "title": "Post Check Body",
   "body": {
     "type": "object",
     "properties": {
-      "greeting": { "type": "string" },
-      "name": { "type": "string" }
+      "name": { "type": "string" },
+      "age": { "type": ["integer", "string"], "minimum": 0 },
+      "greeting": { "enum": ["welcome!", "nice to meet you!"], "description": "greeting message" }
     },
     "required": ["greeting", "name"]
   },
