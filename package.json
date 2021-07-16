@@ -9,13 +9,15 @@
     "build": "tsc",
     "dev": "nodemon -L --exec \"ts-node src/index.ts\"",
     "develop": "ts-node src/index.ts",
-    "start": "node build/index/js"
+    "start": "node build/index.js",
+    "schema:generate": "json2ts -i src/schemas -o src/schema-types --style.singleQuote --no-style.semi"
   },
   "dependencies": {
     "fastify": "^3.19.1"
   },
   "devDependencies": {
     "@types/node": "^16.3.2",
+    "json-schema-to-typescript": "^10.1.4",
     "nodemon": "^2.0.12",
     "ts-node": "^10.1.0",
     "typescript": "^4.3.5"
