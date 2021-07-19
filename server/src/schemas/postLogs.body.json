@@ -4,14 +4,15 @@
     "type": "object",
     "properties": {
       "eventName": { "type": "string" },
-      "properties": { "type": "object" },
+      "eventProperties": { "type": "object" },
+      "browserInfo": { "type": "object" },
       "deviceId": { "type": "string" },
       "sessionId": { "type": "string" },
       "browserId": { "type": "string" },
       "customerId": { "type": ["string", "null"] },
       "clientTime": { "type": "string" }
     },
-    "required": ["eventName", "properties", "deviceId", "sessionId", "browserId", "customerId", "clientTime"]
+    "required": ["eventName", "eventProperties", "deviceId", "sessionId", "browserId", "customerId", "clientTime"]
   },
   "response": {
     "200": {

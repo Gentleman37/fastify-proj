@@ -13,7 +13,7 @@ const Home: React.FC<IProps> = ({ user }) => {
   useEffect(() => {
     gentleClient?.track<string>({
       endPoint: '/logs',
-      event: { eventName: 'view', properties: { page: 'home' } },
+      event: { eventName: 'view', eventProperties: { page: 'home' } },
     })
   }, [])
 
@@ -21,14 +21,14 @@ const Home: React.FC<IProps> = ({ user }) => {
     gentleClient?.updateUserInfo(user.id)
     gentleClient?.track({
       endPoint: '/logs',
-      event: { eventName: 'login', properties: { email: user.email } },
+      event: { eventName: 'login', eventProperties: { email: user.email } },
     })
   }
 
   const handleGoAbout = () => {
     gentleClient?.track({
       endPoint: '/logs',
-      event: { eventName: 'click', properties: { button: 'GO ABOUT' } },
+      event: { eventName: 'click', eventProperties: { button: 'GO ABOUT' } },
     })
     router.push('/about')
   }

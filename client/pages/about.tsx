@@ -10,7 +10,7 @@ const About: React.FC<IProps> = () => {
     const ueah = async () => {
       const res = await gentleClient?.track({
         endPoint: '/logs',
-        event: { eventName: 'view', properties: { page: 'about' } },
+        event: { eventName: 'view', eventProperties: { page: 'about' } },
       })
       console.log(res)
     }
@@ -22,7 +22,7 @@ const About: React.FC<IProps> = () => {
   const handleGoHome = async () => {
     const res = await gentleClient?.track({
       endPoint: '/logs',
-      event: { eventName: 'click', properties: { button: 'GO HOME' } },
+      event: { eventName: 'click', eventProperties: { button: 'GO HOME' } },
     })
     console.log(res)
     router.push('/')
