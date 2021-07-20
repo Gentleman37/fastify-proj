@@ -18,7 +18,7 @@ export default {
   putRecord(recordData: PostLogsBody) {
     const finalData = {
       ...recordData,
-      serverTime: new Date().toISOString(),
+      serverTime: new Date().getTime(),
     }
 
     firehoseClient.putRecord(
