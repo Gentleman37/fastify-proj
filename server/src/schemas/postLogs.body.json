@@ -6,13 +6,12 @@
       "eventName": { "type": "string" },
       "eventProperties": { "type": "object" },
       "browserInfo": { "type": "object" },
-      "deviceId": { "type": "string" },
       "sessionId": { "type": "string" },
       "browserId": { "type": "string" },
       "customerId": { "type": ["string", "null"] },
-      "clientTime": { "type": "string" }
+      "clientTime": { "type": "number" }
     },
-    "required": ["eventName", "eventProperties", "deviceId", "sessionId", "browserId", "customerId", "clientTime"]
+    "required": ["eventName", "eventProperties", "browserInfo", "sessionId", "browserId", "customerId", "clientTime"]
   },
   "response": {
     "200": {

@@ -2,12 +2,12 @@ import AWS from 'aws-sdk'
 import config from '../config'
 import { PostLogsBody } from '../schema-types/postLogs.body'
 
-const { firehoseAccessKeyId, firehosesecretAccessKey, firehoseStreamName, firehoseRegion } = config.keys
+const { firehoseAccessKeyId, firehoseSecretAccessKey, firehoseStreamName, firehoseRegion } = config.keys
 
 AWS.config.region = firehoseRegion
 AWS.config.credentials = new AWS.Credentials({
   accessKeyId: firehoseAccessKeyId,
-  secretAccessKey: firehosesecretAccessKey,
+  secretAccessKey: firehoseSecretAccessKey,
 })
 
 const firehoseClient = new AWS.Firehose({

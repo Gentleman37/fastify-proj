@@ -18,7 +18,7 @@ const Home: React.FC<IProps> = ({ user }) => {
   }, [])
 
   const handleLogin = () => {
-    gentleClient?.updateUserInfo(user.id)
+    gentleClient?.updateUserId(user.id)
     gentleClient?.track({
       endPoint: '/logs',
       event: { eventName: 'login', eventProperties: { email: user.email } },
