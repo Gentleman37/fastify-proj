@@ -6,9 +6,9 @@
       "eventName": { "type": "string" },
       "eventProperties": { "type": "object" },
       "browserInfo": { "type": "object" },
-      "sessionId": { "type": "string" },
+      "sessionId": { "type": "number" },
       "browserId": { "type": "string" },
-      "customerId": { "type": ["string", "null"] },
+      "customerId": { "type": ["number", "null"] },
       "clientTime": { "type": "number" }
     },
     "required": ["eventName", "eventProperties", "browserInfo", "sessionId", "browserId", "customerId", "clientTime"]

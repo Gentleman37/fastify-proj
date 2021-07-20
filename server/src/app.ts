@@ -28,6 +28,7 @@ app.get('/', async (req, reply) => {
 
 // POST /logs
 app.post<{ Body: PostLogsBody }>('/logs', { schema: PostLogsBodySchema, attachValidation: true }, async (req, reply) => {
+  // console.log(req.body)
   if (req.validationError) {
     reply.code(400).send(req.validationError)
   }

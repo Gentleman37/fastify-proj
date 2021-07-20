@@ -14,7 +14,8 @@ export const GentleProvider: React.FC<IProps> = ({ gentleClient, children }) => 
 }
 
 export const useGentle = () => {
-  if (GentleSDKContext !== null) return useContext(GentleSDKContext)
+  const contextValue = useContext(GentleSDKContext)
+  if (contextValue !== null) return contextValue
 
-  throw new Error('GentleSDKContext is null!')
+  throw new Error('ContextValue is null!')
 }

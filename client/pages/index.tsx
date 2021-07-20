@@ -11,25 +11,27 @@ const Home: React.FC<IProps> = ({ user }) => {
   const gentleClient = useGentle()
 
   useEffect(() => {
-    gentleClient?.track<string>({
+    gentleClient.track<string>({
       endPoint: '/logs',
       event: { eventName: 'view', eventProperties: { page: 'home' } },
     })
   }, [])
 
   const handleLogin = () => {
-    gentleClient?.updateUserId(user.id)
-    gentleClient?.track({
+    gentleClient.updateUserId(user.id)
+
+    gentleClient.track<string>({
       endPoint: '/logs',
       event: { eventName: 'login', eventProperties: { email: user.email } },
     })
   }
 
   const handleGoAbout = () => {
-    gentleClient?.track({
+    gentleClient.track<string>({
       endPoint: '/logs',
       event: { eventName: 'click', eventProperties: { button: 'GO ABOUT' } },
     })
+
     router.push('/about')
   }
 
@@ -45,10 +47,10 @@ const Home: React.FC<IProps> = ({ user }) => {
           GO ABOUT
         </div>
 
-        <div style={{ width: '200px', height: '200px', background: 'green' }} onClick={() => console.log(gentleClient?.getEvents())}>
+        <div style={{ width: '200px', height: '200px', background: 'green' }} onClick={() => console.log(gentleClient.getEvents())}>
           로그보기
         </div>
-        <div style={{ width: '200px', height: '200px', background: 'blue' }} onClick={() => gentleClient?.resetEvents()}>
+        <div style={{ width: '200px', height: '200px', background: 'blue' }} onClick={() => gentleClient.resetEvents()}>
           로그리셋
         </div>
 
