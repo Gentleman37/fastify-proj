@@ -17,5 +17,5 @@ export const useGentle = () => {
   const contextValue = useContext(GentleSDKContext)
   if (contextValue !== null) return contextValue
 
-  throw new Error('ContextValue is null!')
+  console.log('ContextValue is null!')
 }
