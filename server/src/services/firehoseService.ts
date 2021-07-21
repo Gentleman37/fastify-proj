@@ -21,6 +21,9 @@ export default {
       serverTime: new Date().getTime(),
     }
 
+    // console.log(finalData)
+    return
+
     firehoseClient.putRecord(
       {
         DeliveryStreamName: firehoseStreamName,

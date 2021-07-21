@@ -8,7 +8,15 @@ import PostLogsBodySchema from './schemas/postLogs.body.json'
 import { PostLogsBody } from './schema-types/postLogs.body'
 import { FirehoseService } from './services'
 
-const app = fastify()
+const app = fastify({
+  logger: {
+    prettyPrint: {
+      translateTime: true,
+      ignore: 'pid,hostname,req,res,responseTime,reqId',
+      messageFormat: '{req.method} {req.url} [{msg}]',
+    },
+  },
+})
 
 app.register(cors, {
   origin: '*',
@@ -24,6 +32,11 @@ if (process.env.NODE_ENV === 'dev') {
 // GET /
 app.get('/', async (req, reply) => {
   return 'good'
+})
+
+// GET /error
+app.get('/error', async (req, reply) => {
+  throw new Error('error')
 })
 
 // POST /logs
